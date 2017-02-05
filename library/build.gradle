@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply from: "quality.gradle"
 
 android {
     compileSdkVersion 24
@@ -16,6 +17,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        warningsAsErrors true
+        disable 'GradleDependency'
+        disable 'OldTargetApi'
     }
 }
 
