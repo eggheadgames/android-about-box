@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
 apply from: "quality.gradle"
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.eggheadgames'
 
 android {
     compileSdkVersion 24
