@@ -51,7 +51,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         EmailUtil.contactUs(AboutActivity.this);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Contact");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.contact_log_event));
                         }
                     }
                 })
@@ -67,7 +67,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         openApp(config.context.getPackageName(), config.buildType == AboutConfig.BuildType.GOOGLE);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Review");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.review_log_event));
                         }
                     }
                 })
@@ -80,7 +80,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         ShareUtil.share(AboutActivity.this);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Share");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.share_log_event));
                         }
                     }
                 })
@@ -96,7 +96,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         openPublisher(config.buildType == AboutConfig.BuildType.GOOGLE, config.appPublisher);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Try Other Apps");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.try_other_app_log_event));
                         }
                     }
                 })
@@ -131,7 +131,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         getOpenFacebookIntent(AboutActivity.this, config.facebookUserName);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Facebook");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.facebook_log_event));
                         }
                     }
                 })
@@ -145,7 +145,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         startTwitter(AboutActivity.this, config.twitterUserName);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Twitter");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.twitter_log_event));
                         }
                     }
                 })
@@ -160,7 +160,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.webHomePage)));
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Website");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.website_log_event));
                         }
                     }
                 })
@@ -180,7 +180,7 @@ public class AboutActivity extends MaterialAboutActivity {
                         }
 
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Privacy");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.privacy_log_event));
                         }
                     }
                 })
@@ -198,7 +198,7 @@ public class AboutActivity extends MaterialAboutActivity {
                         }
 
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, "Acknowlegement");
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.asknowledgment_log_event));
                         }
                     }
                 })
@@ -251,7 +251,7 @@ public class AboutActivity extends MaterialAboutActivity {
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse((googlePlay ? "http://play.google.com/store/apps/details?id=" : "http://www.amazon.com/gp/mas/dl/android?p=") + packageName)));
             } catch (ActivityNotFoundException e2) {
-                Toast.makeText(this, "You don't have any app that can open this link", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.can_not_open, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -263,7 +263,7 @@ public class AboutActivity extends MaterialAboutActivity {
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse((googlePlay ? "http://play.google.com/store/search?q=pub:" : "http://www.amazon.com/gp/mas/dl/android?showAll=1&p=") + publisher)));
             } catch (ActivityNotFoundException e2) {
-                Toast.makeText(this, "You don't have any app that can open this link", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.can_not_open, Toast.LENGTH_SHORT).show();
             }
         }
     }

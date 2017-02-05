@@ -11,5 +11,15 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="about_screen_title">About</string>
     <string name="share">Share</string>
+    <string name="contact_log_event">Contact</string>
+    <string name="review_log_event">Review</string>
+    <string name="share_log_event">Share</string>
+    <string name="try_other_app_log_event">Try Other Apps</string>
+    <string name="facebook_log_event">Facebook</string>
+    <string name="twitter_log_event">Twitter</string>
+    <string name="website_log_event">Website</string>
+    <string name="privacy_log_event">Privacy</string>
+    <string name="asknowledgment_log_event">Acknowledgement</string>
+    <string name="can_not_open">You don\'t have any app that can open this link</string>
 
 </resources>
