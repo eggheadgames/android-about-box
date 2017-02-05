@@ -1,0 +1,50 @@
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+
+findbugs {
+    ignoreFailures = false
+    reportsDir = file("$project.buildDir/outputs/")
+    reportLevel = "medium"
+    effort = "max"
+}
+
+pmd {
+    ignoreFailures = false
+    reportsDir = file("$project.buildDir/outputs/")
+}
+
+task findbugs(type: FindBugs, dependsOn: "assembleDebug") {
+    description 'Run findbugs'
+    group 'verification'
+
+    classes = fileTree("$project.buildDir/intermediates/classes/debug")
+    source = fileTree('src/main/java')
+    classpath = files()
+
+    effort = 'max'
+
+    excludeFilter = file("$project.projectDir/findbugs_exclude.xml")
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+task pmd(type: Pmd, dependsOn: "assembleDebug") {
+    description 'Run pmd'
+    group 'verification'
+
+    ruleSets = ["java-basic", "java-braces", "java-strings", "java-design", "java-unusedcode"]
+    source = fileTree('src/main/java')
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+check.doLast {
+    project.tasks.getByName("findbugs").execute()
+    project.tasks.getByName("pmd").execute()
+}

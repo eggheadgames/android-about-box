@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AboutBox</string>
+    <string name="leave_review">Leave Review</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="try_other_apps">Try Other Apps</string>
+    <string name="version">Version</string>
+    <string name="facebook_label">Facebook</string>
+    <string name="twitter_label">Twitter</string>
+    <string name="web_label">Web</string>
+    <string name="acknowledgment">Acknowledgment</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="about_screen_title">About</string>
+    <string name="share">Share</string>
+
+</resources>
