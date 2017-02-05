@@ -65,7 +65,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
-                        openApp(config.context.getPackageName(), config.buildType == AboutConfig.BuildType.GOOGLE);
+                        openApp(config.packageName, config.buildType == AboutConfig.BuildType.GOOGLE);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.review_log_event));
                         }

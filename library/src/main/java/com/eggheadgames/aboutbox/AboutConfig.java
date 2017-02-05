@@ -1,19 +1,8 @@
 package com.eggheadgames.aboutbox;
 
-import android.content.Context;
-
 public class AboutConfig {
 
     public enum BuildType {AMAZON, GOOGLE}
-
-    private static AboutConfig aboutConfig;
-
-    public static AboutConfig getInstance() {
-        if (aboutConfig == null) {
-            aboutConfig = new AboutConfig();
-        }
-        return aboutConfig;
-    }
 
     //    general info
     public String appName;
@@ -29,8 +18,7 @@ public class AboutConfig {
     public String privacyHtmlPath;
     public String acknowledgmentHtmlPath;
     public BuildType buildType;
-
-    public Context context;
+    public String packageName;
 
     //    custom analytics and dialog
     public IAnalytic analytics;
@@ -45,5 +33,13 @@ public class AboutConfig {
     public String shareMessageTitle;
     public String shareMessage;
     public String sharingTitle;
+
+    public static class SingletonHolder {
+        public static final AboutConfig HOLDER_INSTANCE = new AboutConfig();
+    }
+
+    public static AboutConfig getInstance() {
+        return SingletonHolder.HOLDER_INSTANCE;
+    }
 
 }
