@@ -1,0 +1,12 @@
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-24
+    - echo y | android update sdk --no-ui --all --filter build-tools-24.0.2
+
+test:
+  override:
+    # run lint (tests will come next ...)
+    - ./gradlew :library:check
+
+    # copy results
+    - cp -r library/build/outputs $CIRCLE_ARTIFACTS
