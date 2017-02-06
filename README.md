@@ -94,3 +94,9 @@ Add AboutBox configuration to your Application class
         aboutConfig.sharingTitle = getString(R.string.sharing_title);
 ```
 
+Open AboutBox screen
+
+```java
+        AboutActivity.launch(activity);
+```
+
