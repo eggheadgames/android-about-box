@@ -2,7 +2,7 @@
 [![Release](https://jitpack.io/v/eggheadgames/android-about-box.svg)](https://jitpack.io/#eggheadgames/android-about-box)
 
 # About Box
-A modern About Box for an Android App
+A modern About Box for an Android App built on the [daniel-stoneuk/material-about-library](https://github.com/daniel-stoneuk/material-about-library).
 
 ### Easily display the common items of an About Box in a modern Android friendly way
 
