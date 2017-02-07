@@ -100,3 +100,7 @@ Open AboutBox screen
         AboutActivity.launch(activity);
 ```
 
+## Screenshot
+
+<img src="https://github.com/eggheadgames/android-about-box/blob/feature/readme_examples/extras/example.png?raw=true">
+
