@@ -102,5 +102,5 @@ Open AboutBox screen
 
 ## Screenshot
 
-<img src="https://github.com/eggheadgames/android-about-box/blob/feature/readme_examples/extras/example.png?raw=true">
+<img src="extras/example.png?raw=true">
 
