@@ -221,27 +221,36 @@ public class AboutActivity extends MaterialAboutActivity {
     }
 
     public static void getOpenFacebookIntent(Activity context, String name) {
-        Intent intent;
         try {
             context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/" + name));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/" + name));
+            context.startActivity(intent);
         } catch (Exception e) {
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + name));
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + name));
+                context.startActivity(intent);
+            } catch (Exception e1) {
+                Toast.makeText(context, R.string.can_not_open, Toast.LENGTH_SHORT).show();
+            }
         }
-        context.startActivity(intent);
     }
 
 
     public static void startTwitter(Activity context, String name) {
-        Intent intent;
         try {
             context.getPackageManager().getPackageInfo("com.twitter.android", 0);
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + name));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + name));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
         } catch (Exception e) {
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/" + name));
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/" + name));
+                context.startActivity(intent);
+            } catch (Exception e1) {
+                Toast.makeText(context, R.string.can_not_open, Toast.LENGTH_SHORT).show();
+            }
         }
-        context.startActivity(intent);
+
     }
 
     public void openApp(String packageName, boolean googlePlay) {//true if Google Play, false if Amazon Store
