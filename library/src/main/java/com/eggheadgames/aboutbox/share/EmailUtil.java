@@ -19,19 +19,6 @@ public final class EmailUtil {
 
         final Uri mailto = Uri.fromParts("mailto", config.emailAddress, null);
 
-        final String emailSubject;
-
-        switch (config.buildType) {
-            case GOOGLE:
-                emailSubject = config.emailSubject + "G";
-                break;
-            case AMAZON:
-                emailSubject = config.emailSubject + "K";
-                break;
-            default:
-                emailSubject = config.emailSubject;
-                break;
-        }
         String emailBody = config.emailBody;
         if (TextUtils.isEmpty(emailBody)) {
             String deviceInfo = "";
@@ -39,6 +26,7 @@ public final class EmailUtil {
             deviceInfo += "\n Android version: " + Build.VERSION.RELEASE + " (" + android.os.Build.VERSION.SDK_INT + ")";
             deviceInfo += "\n OS version: " + System.getProperty("os.version") + " (" + android.os.Build.VERSION.INCREMENTAL + ")";
             deviceInfo += "\n Device: " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")";
+            deviceInfo += "\n Platform: " + platformName(config.buildType);
 
             emailBody = "Please type your question here: \n\n\n\n\n"
                     + "---------------------------" + deviceInfo;
@@ -46,13 +34,21 @@ public final class EmailUtil {
 
         try {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO, mailto);
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, config.emailSubject);
             emailIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
             activity.startActivity(Intent.createChooser(emailIntent, "Send email..."));
         } catch (Exception e) {
             if (config.analytics != null) {
                 config.analytics.logException(e, false);
             }
+        }
+    }
+
+    private static String platformName(AboutConfig.BuildType buildType) {
+        switch (buildType) {
+            case GOOGLE:    return "Google Play";
+            case AMAZON:    return "Amazon Kindle";
+            default:        return "Unknown";
         }
     }
 }
