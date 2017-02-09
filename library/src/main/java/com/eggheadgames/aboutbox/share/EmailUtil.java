@@ -30,6 +30,7 @@ public final class EmailUtil {
                 break;
             default:
                 emailSubject = config.emailSubject;
+                break;
         }
         String emailBody = config.emailBody;
         if (TextUtils.isEmpty(emailBody)) {
