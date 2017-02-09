@@ -28,7 +28,7 @@ public final class EmailUtil {
             deviceInfo += "\n Device: " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")";
             deviceInfo += "\n Platform: " + platformName(config.buildType);
 
-            emailBody = R.string.egab_email_body_prompt + "\n\n\n\n\n"
+            emailBody = activity.getString(R.string.egab_email_body_prompt) + "\n\n\n\n\n"
                     + "---------------------------" + deviceInfo;
         }
 
