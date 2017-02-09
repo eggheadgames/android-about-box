@@ -65,7 +65,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
-                        openApp(config.packageName, config.buildType == AboutConfig.BuildType.GOOGLE);
+                        openApp(config.buildType, config.packageName);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.review_log_event));
                         }
@@ -94,7 +94,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
-                        openPublisher(config.buildType == AboutConfig.BuildType.GOOGLE, config.appPublisher, config.packageName);
+                        openPublisher(config.buildType, config.appPublisher, config.packageName);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.try_other_app_log_event));
                         }
@@ -235,7 +235,6 @@ public class AboutActivity extends MaterialAboutActivity {
         }
     }
 
-
     public static void startTwitter(Activity context, String name) {
         try {
             context.getPackageManager().getPackageInfo("com.twitter.android", 0);
@@ -253,27 +252,48 @@ public class AboutActivity extends MaterialAboutActivity {
 
     }
 
-    public void openApp(String packageName, boolean googlePlay) {//true if Google Play, false if Amazon Store
-        try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse((googlePlay ? "market://details?id=" : "amzn://apps/android?p=") + packageName)));
-        } catch (ActivityNotFoundException e1) {
-            try {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse((googlePlay ? "http://play.google.com/store/apps/details?id=" : "http://www.amazon.com/gp/mas/dl/android?p=") + packageName)));
-            } catch (ActivityNotFoundException e2) {
-                Toast.makeText(this, R.string.can_not_open, Toast.LENGTH_SHORT).show();
-            }
+    public void openApp(AboutConfig.BuildType buildType, String packageName) {//true if Google Play, false if Amazon Store
+        String appURI = null;
+        String webURI = null;
+        switch (buildType) {
+            case GOOGLE:
+                appURI = "market://details?id=" + packageName;
+                webURI = "http://play.google.com/store/apps/details?id=" + packageName;
+                break;
+            case AMAZON:
+                appURI = "amzn://apps/android?p=" + packageName;
+                webURI = "http://www.amazon.com/gp/mas/dl/android?p=" + packageName;
+                break;
+            default:
+                //nothing
         }
+        open(appURI, webURI);
     }
 
-    public void openPublisher(boolean googlePlay, String publisher, String packageName) {//true if Google Play, false if Amazon Store
-        String pub = googlePlay ? publisher : packageName;
+    public void openPublisher(AboutConfig.BuildType buildType, String publisher, String packageName) {//true if Google Play, false if Amazon Store
+        String appURI = null;
+        String webURI = null;
+        switch (buildType) {
+            case GOOGLE:
+                appURI = "market://search?q=pub:" + publisher;
+                webURI = "http://play.google.com/store/search?q=pub:" + publisher;
+                break;
+            case AMAZON:
+                appURI = "amzn://apps/android?showAll=1&p=" + packageName;
+                webURI = "http://www.amazon.com/gp/mas/dl/android?showAll=1&p=" + packageName;
+                break;
+            default:
+                //nothing
+        }
+        open(appURI, webURI);
+    }
+
+    private void open(String appURI, String webURI) {
         try {
-            String uriString = (googlePlay ? "market://search?q=pub:" : "amzn://apps/android?showAll=1&p=") + pub;
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uriString)));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(appURI)));
         } catch (ActivityNotFoundException e1) {
             try {
-                String uriString = (googlePlay ? "http://play.google.com/store/search?q=pub:" : "http://www.amazon.com/gp/mas/dl/android?showAll=1&p=") + pub;
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uriString)));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(webURI)));
             } catch (ActivityNotFoundException e2) {
                 Toast.makeText(this, R.string.can_not_open, Toast.LENGTH_SHORT).show();
             }

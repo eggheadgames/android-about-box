@@ -19,12 +19,15 @@ public final class EmailUtil {
 
         final String emailSubject;
 
-        if (config.buildType == AboutConfig.BuildType.GOOGLE) {
-            emailSubject = config.emailSubject + "G";
-        } else if (config.buildType == AboutConfig.BuildType.AMAZON) {
-            emailSubject = config.emailSubject + "K";
-        } else {
-            emailSubject = config.emailSubject;
+        switch (config.buildType) {
+            case GOOGLE:
+                emailSubject = config.emailSubject + "G";
+                break;
+            case AMAZON:
+                emailSubject = config.emailSubject + "K";
+                break;
+            default:
+                emailSubject = config.emailSubject;
         }
 
         try {
