@@ -8,8 +8,6 @@ import android.text.TextUtils;
 
 import com.eggheadgames.aboutbox.AboutConfig;
 
-import org.w3c.dom.Text;
-
 public final class EmailUtil {
 
     private EmailUtil() {

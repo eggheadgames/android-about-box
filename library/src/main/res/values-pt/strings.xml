@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AboutBox</string>
+    <string name="leave_review">Avaliar</string>
+    <string name="contact_support">Contactar o Suporte</string>
+    <string name="try_other_apps">Experimentar outras aplicações</string>
+    <string name="version">Versão</string>
+    <string name="facebook_label">Facebook</string>
+    <string name="twitter_label">Twitter</string>
+    <string name="web_label">Web</string>
+    <string name="acknowledgment">Acknowledgment</string>
+    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="about_screen_title">Sobre</string>
+    <string name="share">Partilhar</string>
+    <string name="contact_log_event">Contactos</string>
+    <string name="review_log_event">Avalie</string>
+    <string name="share_log_event">Partilhar</string>
+    <string name="try_other_app_log_event">Experimentar outras aplicações</string>
+    <string name="facebook_log_event">Facebook</string>
+    <string name="twitter_log_event">Twitter</string>
+    <string name="website_log_event">Website</string>
+    <string name="privacy_log_event">Privacicidade</string>
+    <string name="asknowledgment_log_event">Acknowledgement</string>
+    <string name="can_not_open">Tu não tens nenhuma aplicação que possa abrir esta ligação</string>
+
+</resources>
