@@ -94,7 +94,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
-                        openPublisher(config.buildType == AboutConfig.BuildType.GOOGLE, config.appPublisher);
+                        openPublisher(config.buildType == AboutConfig.BuildType.GOOGLE, config.appPublisher, config.packageName);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.try_other_app_log_event));
                         }
@@ -256,12 +256,15 @@ public class AboutActivity extends MaterialAboutActivity {
         }
     }
 
-    public void openPublisher(boolean googlePlay, String publisher) {//true if Google Play, false if Amazon Store
+    public void openPublisher(boolean googlePlay, String publisher, String packageName) {//true if Google Play, false if Amazon Store
+        String pub = googlePlay ? publisher : packageName;
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse((googlePlay ? "market://search?q=pub:" : "amzn://apps/android?showAll=1&p=") + publisher)));
+            String uriString = (googlePlay ? "market://search?q=pub:" : "amzn://apps/android?showAll=1&p=") + pub;
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uriString)));
         } catch (ActivityNotFoundException e1) {
             try {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse((googlePlay ? "http://play.google.com/store/search?q=pub:" : "http://www.amazon.com/gp/mas/dl/android?showAll=1&p=") + publisher)));
+                String uriString = (googlePlay ? "http://play.google.com/store/search?q=pub:" : "http://www.amazon.com/gp/mas/dl/android?showAll=1&p=") + pub;
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uriString)));
             } catch (ActivityNotFoundException e2) {
                 Toast.makeText(this, R.string.can_not_open, Toast.LENGTH_SHORT).show();
             }
