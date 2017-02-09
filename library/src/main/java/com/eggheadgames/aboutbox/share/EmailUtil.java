@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.eggheadgames.aboutbox.AboutConfig;
-import com.eggheadgames.aboutbox.BuildConfig;
 
 public final class EmailUtil {
 
@@ -20,9 +19,9 @@ public final class EmailUtil {
 
         final String emailSubject;
 
-        if ("google".equals(BuildConfig.FLAVOR)) {
+        if (config.buildType == AboutConfig.BuildType.GOOGLE) {
             emailSubject = config.emailSubject + "G";
-        } else if ("amazon".equals(BuildConfig.FLAVOR)) {
+        } else if (config.buildType == AboutConfig.BuildType.AMAZON) {
             emailSubject = config.emailSubject + "K";
         } else {
             emailSubject = config.emailSubject;
