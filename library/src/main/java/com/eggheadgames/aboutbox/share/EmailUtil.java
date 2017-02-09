@@ -25,7 +25,6 @@ public final class EmailUtil {
             String deviceInfo = "";
             deviceInfo += "\n App version: " + config.version;
             deviceInfo += "\n Android version: " + Build.VERSION.RELEASE + " (" + android.os.Build.VERSION.SDK_INT + ")";
-            deviceInfo += "\n OS version: " + System.getProperty("os.version") + " (" + android.os.Build.VERSION.INCREMENTAL + ")";
             deviceInfo += "\n Device: " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")";
             deviceInfo += "\n Platform: " + platformName(config.buildType);
 
