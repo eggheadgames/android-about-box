@@ -21,5 +21,6 @@
     <string name="egab_privacy_log_event">Privacy</string>
     <string name="egab_acknowledgements_log_event">Acknowledgements</string>
     <string name="egab_can_not_open">You don\'t have any app that can open this link</string>
+    <string name="egab_email_body_prompt">Please type your question here: </string>
 
 </resources>

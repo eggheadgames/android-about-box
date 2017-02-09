@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 
 import com.eggheadgames.aboutbox.AboutConfig;
+import com.eggheadgames.aboutbox.R;
 
 public final class EmailUtil {
 
@@ -28,7 +29,7 @@ public final class EmailUtil {
             deviceInfo += "\n Device: " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")";
             deviceInfo += "\n Platform: " + platformName(config.buildType);
 
-            emailBody = "Please type your question here: \n\n\n\n\n"
+            emailBody = R.string.egab_email_body_prompt + "\n\n\n\n\n"
                     + "---------------------------" + deviceInfo;
         }
 
