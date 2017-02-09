@@ -7,7 +7,7 @@
     <string name="egab_facebook_label">Facebook</string>
     <string name="egab_twitter_label">Twitter</string>
     <string name="egab_web_label">Web</string>
-    <string name="acknowledgment">Acknowledgment</string>
+    <string name="egab_acknowledgements">Acknowledgements</string>
     <string name="egab_privacy_policy">Política de Privacidade</string>
     <string name="egab_about_screen_title">Sobre</string>
     <string name="egab_share">Partilhar</string>
@@ -19,7 +19,7 @@
     <string name="egab_twitter_log_event">Twitter</string>
     <string name="egab_website_log_event">Website</string>
     <string name="egab_privacy_log_event">Privacicidade</string>
-    <string name="asknowledgment_log_event">Acknowledgement</string>
+    <string name="egab_acknowledgements_log_event">Acknowledgements</string>
     <string name="egab_can_not_open">Tu não tens nenhuma aplicação que possa abrir esta ligação</string>
 
 </resources>
