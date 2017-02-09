@@ -37,21 +37,21 @@ public class AboutActivity extends MaterialAboutActivity {
                 .build());
 
         generalInfoCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.version)
+                .text(R.string.egab_version)
                 .subText(config.version)
                 .build());
 
 
         MaterialAboutCard.Builder supportCardBuilder = new MaterialAboutCard.Builder();
         supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.contact_support)
+                .text(R.string.egab_contact_support)
                 .icon(R.drawable.ic_email_black)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
                         EmailUtil.contactUs(AboutActivity.this);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.contact_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_contact_log_event));
                         }
                     }
                 })
@@ -60,27 +60,27 @@ public class AboutActivity extends MaterialAboutActivity {
 
         MaterialAboutCard.Builder shareCardBuilder = new MaterialAboutCard.Builder();
         shareCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.leave_review)
+                .text(R.string.egab_leave_review)
                 .icon(R.drawable.ic_review)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
                         openApp(config.buildType, config.packageName);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.review_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_review_log_event));
                         }
                     }
                 })
                 .build());
         shareCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.share)
+                .text(R.string.egab_share)
                 .icon(R.drawable.ic_share_black)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
                         ShareUtil.share(AboutActivity.this);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.share_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_share_log_event));
                         }
                     }
                 })
@@ -89,14 +89,14 @@ public class AboutActivity extends MaterialAboutActivity {
 
         MaterialAboutCard.Builder aboutCardBuilder = new MaterialAboutCard.Builder();
         aboutCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.try_other_apps)
+                .text(R.string.egab_try_other_apps)
                 .icon(R.drawable.ic_try_other_apps)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
                         openPublisher(config.buildType, config.appPublisher, config.packageName);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.try_other_app_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_try_other_app_log_event));
                         }
                     }
                 })
@@ -123,7 +123,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
         MaterialAboutCard.Builder socialNetworksCardBuilder = new MaterialAboutCard.Builder();
         socialNetworksCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.facebook_label)
+                .text(R.string.egab_facebook_label)
                 .subText(config.facebookUserName)
                 .icon(R.drawable.ic_facebook_24)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
@@ -131,13 +131,13 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         getOpenFacebookIntent(AboutActivity.this, config.facebookUserName);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.facebook_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_facebook_log_event));
                         }
                     }
                 })
                 .build());
         socialNetworksCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.twitter_label)
+                .text(R.string.egab_twitter_label)
                 .subText(config.twitterUserName)
                 .icon(R.drawable.ic_twitter_24dp)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
@@ -145,14 +145,14 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         startTwitter(AboutActivity.this, config.twitterUserName);
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.twitter_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_twitter_log_event));
                         }
                     }
                 })
                 .build());
 
         socialNetworksCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.web_label)
+                .text(R.string.egab_web_label)
                 .subText(config.webHomePage.replace("https://", "").replace("http://", "").replace("/", ""))
                 .icon(R.drawable.ic_web_black_24dp)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
@@ -160,7 +160,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     public void onClick() {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.webHomePage)));
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.website_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_website_log_event));
                         }
                     }
                 })
@@ -168,7 +168,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
         MaterialAboutCard.Builder privacyCardBuilder = new MaterialAboutCard.Builder();
         privacyCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.privacy_policy)
+                .text(R.string.egab_privacy_policy)
                 .icon(R.drawable.ic_privacy)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
@@ -176,17 +176,17 @@ public class AboutActivity extends MaterialAboutActivity {
                         if (config.dialog == null) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.privacyHtmlPath)));
                         } else {
-                            config.dialog.open(AboutActivity.this, config.privacyHtmlPath, getString(R.string.privacy_policy));
+                            config.dialog.open(AboutActivity.this, config.privacyHtmlPath, getString(R.string.egab_privacy_policy));
                         }
 
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.privacy_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_privacy_log_event));
                         }
                     }
                 })
                 .build());
         privacyCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.acknowledgements)
+                .text(R.string.egab_acknowledgements)
                 .icon(R.drawable.ic_acknowledgements)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
@@ -194,11 +194,11 @@ public class AboutActivity extends MaterialAboutActivity {
                         if (config.dialog == null) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.acknowledgmentHtmlPath)));
                         } else {
-                            config.dialog.open(AboutActivity.this, config.acknowledgmentHtmlPath, getString(R.string.acknowledgements));
+                            config.dialog.open(AboutActivity.this, config.acknowledgmentHtmlPath, getString(R.string.egab_acknowledgements));
                         }
 
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.acknowledgements_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_acknowledgements_log_event));
                         }
                     }
                 })
@@ -217,7 +217,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
     @Override
     protected CharSequence getActivityTitle() {
-        return getString(R.string.about_screen_title);
+        return getString(R.string.egab_about_screen_title);
     }
 
     public static void getOpenFacebookIntent(Activity context, String name) {
@@ -230,7 +230,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + name));
                 context.startActivity(intent);
             } catch (Exception e1) {
-                Toast.makeText(context, R.string.can_not_open, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.egab_can_not_open, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -246,7 +246,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/" + name));
                 context.startActivity(intent);
             } catch (Exception e1) {
-                Toast.makeText(context, R.string.can_not_open, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.egab_can_not_open, Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -295,7 +295,7 @@ public class AboutActivity extends MaterialAboutActivity {
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(webURI)));
             } catch (ActivityNotFoundException e2) {
-                Toast.makeText(this, R.string.can_not_open, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.egab_can_not_open, Toast.LENGTH_SHORT).show();
             }
         }
     }
