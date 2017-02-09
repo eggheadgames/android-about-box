@@ -186,19 +186,19 @@ public class AboutActivity extends MaterialAboutActivity {
                 })
                 .build());
         privacyCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.acknowledgment)
-                .icon(R.drawable.ic_acknowledgment)
+                .text(R.string.acknowledgements)
+                .icon(R.drawable.ic_acknowledgements)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
                         if (config.dialog == null) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.acknowledgmentHtmlPath)));
                         } else {
-                            config.dialog.open(AboutActivity.this, config.acknowledgmentHtmlPath, getString(R.string.acknowledgment));
+                            config.dialog.open(AboutActivity.this, config.acknowledgmentHtmlPath, getString(R.string.acknowledgements));
                         }
 
                         if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.asknowledgment_log_event));
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.acknowledgements_log_event));
                         }
                     }
                 })
