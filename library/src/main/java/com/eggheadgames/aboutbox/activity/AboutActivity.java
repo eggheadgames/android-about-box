@@ -252,7 +252,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
     }
 
-    public void openApp(AboutConfig.BuildType buildType, String packageName) {//true if Google Play, false if Amazon Store
+    public void openApp(AboutConfig.BuildType buildType, String packageName) {
         String appURI = null;
         String webURI = null;
         switch (buildType) {
@@ -270,7 +270,7 @@ public class AboutActivity extends MaterialAboutActivity {
         open(appURI, webURI);
     }
 
-    public void openPublisher(AboutConfig.BuildType buildType, String publisher, String packageName) {//true if Google Play, false if Amazon Store
+    public void openPublisher(AboutConfig.BuildType buildType, String publisher, String packageName) {
         String appURI = null;
         String webURI = null;
         switch (buildType) {
