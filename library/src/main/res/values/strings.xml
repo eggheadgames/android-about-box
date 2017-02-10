@@ -1,25 +1,26 @@
 <resources>
     <string name="app_name">AboutBox</string>
-    <string name="leave_review">Leave Review</string>
-    <string name="contact_support">Contact Support</string>
-    <string name="try_other_apps">Try Other Apps</string>
-    <string name="version">Version</string>
-    <string name="facebook_label">Facebook</string>
-    <string name="twitter_label">Twitter</string>
-    <string name="web_label">Web</string>
-    <string name="acknowledgment">Acknowledgment</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="about_screen_title">About</string>
-    <string name="share">Share</string>
-    <string name="contact_log_event">Contact</string>
-    <string name="review_log_event">Review</string>
-    <string name="share_log_event">Share</string>
-    <string name="try_other_app_log_event">Try Other Apps</string>
-    <string name="facebook_log_event">Facebook</string>
-    <string name="twitter_log_event">Twitter</string>
-    <string name="website_log_event">Website</string>
-    <string name="privacy_log_event">Privacy</string>
-    <string name="asknowledgment_log_event">Acknowledgement</string>
-    <string name="can_not_open">You don\'t have any app that can open this link</string>
+    <string name="egab_leave_review">Leave Review</string>
+    <string name="egab_contact_support">Contact Support</string>
+    <string name="egab_try_other_apps">Try Other Apps</string>
+    <string name="egab_version">Version</string>
+    <string name="egab_facebook_label">Facebook</string>
+    <string name="egab_twitter_label">Twitter</string>
+    <string name="egab_web_label">Web</string>
+    <string name="egab_acknowledgements">Acknowledgements</string>
+    <string name="egab_privacy_policy">Privacy Policy</string>
+    <string name="egab_about_screen_title">About</string>
+    <string name="egab_share">Share</string>
+    <string name="egab_contact_log_event">Contact</string>
+    <string name="egab_review_log_event">Review</string>
+    <string name="egab_share_log_event">Share</string>
+    <string name="egab_try_other_app_log_event">Try Other Apps</string>
+    <string name="egab_facebook_log_event">Facebook</string>
+    <string name="egab_twitter_log_event">Twitter</string>
+    <string name="egab_website_log_event">Website</string>
+    <string name="egab_privacy_log_event">Privacy</string>
+    <string name="egab_acknowledgements_log_event">Acknowledgements</string>
+    <string name="egab_can_not_open">You don\'t have any app that can open this link</string>
+    <string name="egab_email_body_prompt">Please type your question here: </string>
 
 </resources>

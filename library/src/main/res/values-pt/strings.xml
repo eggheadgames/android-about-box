@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AboutBox</string>
+    <string name="egab_leave_review">Avaliar</string>
+    <string name="egab_contact_support">Contactar o Suporte</string>
+    <string name="egab_try_other_apps">Experimentar outras aplicações</string>
+    <string name="egab_version">Versão</string>
+    <string name="egab_facebook_label">Facebook</string>
+    <string name="egab_twitter_label">Twitter</string>
+    <string name="egab_web_label">Web</string>
+    <string name="egab_acknowledgements">Acknowledgements</string>
+    <string name="egab_privacy_policy">Política de Privacidade</string>
+    <string name="egab_about_screen_title">Sobre</string>
+    <string name="egab_share">Partilhar</string>
+    <string name="egab_contact_log_event">Contactos</string>
+    <string name="egab_review_log_event">Avalie</string>
+    <string name="egab_share_log_event">Partilhar</string>
+    <string name="egab_try_other_app_log_event">Experimentar outras aplicações</string>
+    <string name="egab_facebook_log_event">Facebook</string>
+    <string name="egab_twitter_log_event">Twitter</string>
+    <string name="egab_website_log_event">Website</string>
+    <string name="egab_privacy_log_event">Privacicidade</string>
+    <string name="egab_acknowledgements_log_event">Acknowledgements</string>
+    <string name="egab_can_not_open">Tu não tens nenhuma aplicação que possa abrir esta ligação</string>
+    <string name="egab_email_body_prompt">Digite sua pergunta aqui: </string>
+</resources>
