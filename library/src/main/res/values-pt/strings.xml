@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">AboutBox</string>
     <string name="egab_leave_review">Avaliar</string>
     <string name="egab_contact_support">Contactar o Suporte</string>
     <string name="egab_try_other_apps">Experimentar outras aplicações</string>
