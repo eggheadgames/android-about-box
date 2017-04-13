@@ -49,9 +49,9 @@ public class AboutActivity extends MaterialAboutActivity {
             supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                     .text(R.string.egab_guide)
                     .icon(R.drawable.ic_help_green)
-                    .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                    .setOnClickListener(new MaterialAboutItemOnClickListener() {
                         @Override
-                        public void onClick() {
+                        public void onClick(boolean b) {
                             openHTMLPage(config.guideHtmlPath);
                             if (config.analytics != null) {
                                 config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
