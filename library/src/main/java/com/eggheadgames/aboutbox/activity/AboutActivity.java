@@ -62,7 +62,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.webHomePage)));
+                        openHTMLPage(config.webHomePage);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
                         }
@@ -120,7 +120,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     @Override
                     public void onClick() {
                         if (config.dialog == null) {
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.companyHtmlPath)));
+                            openHTMLPage(config.companyHtmlPath);
                         } else {
                             config.dialog.open(AboutActivity.this, config.companyHtmlPath, config.aboutLabelTitle);
                         }
@@ -170,7 +170,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.webHomePage)));
+                        openHTMLPage(config.webHomePage);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_website_log_event));
                         }
@@ -186,7 +186,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     @Override
                     public void onClick() {
                         if (config.dialog == null) {
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.privacyHtmlPath)));
+                            openHTMLPage(config.privacyHtmlPath);
                         } else {
                             config.dialog.open(AboutActivity.this, config.privacyHtmlPath, getString(R.string.egab_privacy_policy));
                         }
@@ -204,7 +204,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     @Override
                     public void onClick() {
                         if (config.dialog == null) {
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.acknowledgmentHtmlPath)));
+                            openHTMLPage(config.acknowledgmentHtmlPath);
                         } else {
                             config.dialog.open(AboutActivity.this, config.acknowledgmentHtmlPath, getString(R.string.egab_acknowledgements));
                         }
@@ -305,10 +305,14 @@ public class AboutActivity extends MaterialAboutActivity {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(appURI)));
         } catch (ActivityNotFoundException e1) {
             try {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(webURI)));
+                openHTMLPage(webURI);
             } catch (ActivityNotFoundException e2) {
                 Toast.makeText(this, R.string.egab_can_not_open, Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void openHTMLPage(String htmlPath) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(htmlPath)));
     }
 }
