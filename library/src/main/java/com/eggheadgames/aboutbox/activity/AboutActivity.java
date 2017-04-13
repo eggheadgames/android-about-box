@@ -56,7 +56,19 @@ public class AboutActivity extends MaterialAboutActivity {
                     }
                 })
                 .build());
-
+        supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+                .text(R.string.egab_guide)
+                .icon(R.drawable.ic_about_black)
+                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                    @Override
+                    public void onClick() {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.webHomePage)));
+                        if (config.analytics != null) {
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
+                        }
+                    }
+                })
+                .build());
 
         MaterialAboutCard.Builder shareCardBuilder = new MaterialAboutCard.Builder();
         shareCardBuilder.addItem(new MaterialAboutActionItem.Builder()
@@ -267,7 +279,7 @@ public class AboutActivity extends MaterialAboutActivity {
             default:
                 //nothing
         }
-        open(appURI, webURI);
+        openApplication(appURI, webURI);
     }
 
     public void openPublisher(AboutConfig.BuildType buildType, String publisher, String packageName) {
@@ -285,10 +297,10 @@ public class AboutActivity extends MaterialAboutActivity {
             default:
                 //nothing
         }
-        open(appURI, webURI);
+        openApplication(appURI, webURI);
     }
 
-    private void open(String appURI, String webURI) {
+    private void openApplication(String appURI, String webURI) {
         try {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(appURI)));
         } catch (ActivityNotFoundException e1) {
