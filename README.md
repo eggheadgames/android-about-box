@@ -100,6 +100,32 @@ Open AboutBox screen
         AboutActivity.launch(activity);
 ```
 
+## Theme
+
+Add to your AndroidManifest.xml file
+
+```
+        <activity
+            android:name="com.eggheadgames.aboutbox.activity.AboutActivity"
+            android:theme="@style/AppTheme.MaterialAboutActivity"/>
+```
+
+Ensure that `AppTheme.MaterialAboutActivity` theme extends either of these themes, and apply primary & accent colours:
+```
+Theme.Mal.Light.DarkActionBar
+Theme.Mal.Light.LightActionBar
+Theme.Mal.Dark.LightActionBar
+Theme.Mal.Dark.DarkActionBar
+```
+
+```
+  <style name="AppTheme.MaterialAboutActivity" parent="Theme.Mal.Light.DarkActionBar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+```
 ## Screenshot
 
 <img src="extras/example.png?raw=true">
