@@ -58,7 +58,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 .build());
         supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_guide)
-                .icon(R.drawable.ic_guide)
+                .icon(R.drawable.ic_help_24dp)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
