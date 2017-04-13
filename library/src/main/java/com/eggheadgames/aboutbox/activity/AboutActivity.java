@@ -33,25 +33,18 @@ public class AboutActivity extends MaterialAboutActivity {
 
         final AboutConfig config = AboutConfig.getInstance();
 
-        MaterialAboutCard.Builder generalInfoCardBuilder = buildGeneralInfoCard(config);
-        MaterialAboutCard.Builder supportCardBuilder = buildSupportCard(config);
-        MaterialAboutCard.Builder shareCardBuilder = buildShareCard(config);
-        MaterialAboutCard.Builder aboutCardBuilder = buildAboutCard(config);
-        MaterialAboutCard.Builder socialNetworksCardBuilder = buildSocialNetworksCard(config);
-        MaterialAboutCard.Builder privacyCardBuilder = buildPrivacyCard(config);
-
         return new MaterialAboutList.Builder()
-                .addCard(generalInfoCardBuilder.build())
-                .addCard(supportCardBuilder.build())
-                .addCard(shareCardBuilder.build())
-                .addCard(aboutCardBuilder.build())
-                .addCard(socialNetworksCardBuilder.build())
-                .addCard(privacyCardBuilder.build())
-                .build();
+            .addCard(buildGeneralInfoCard(config))
+            .addCard(buildSupportCard(config))
+            .addCard(buildShareCard(config))
+            .addCard(buildAboutCard(config))
+            .addCard(buildSocialNetworksCard(config))
+            .addCard(buildPrivacyCard(config))
+            .build();
     }
 
     @NonNull
-    private MaterialAboutCard.Builder buildGeneralInfoCard(AboutConfig config) {
+    private MaterialAboutCard buildGeneralInfoCard(AboutConfig config) {
         MaterialAboutCard.Builder generalInfoCardBuilder = new MaterialAboutCard.Builder();
 
         generalInfoCardBuilder.addItem(new MaterialAboutTitleItem.Builder()
@@ -63,11 +56,11 @@ public class AboutActivity extends MaterialAboutActivity {
                 .text(R.string.egab_version)
                 .subText(config.version)
                 .build());
-        return generalInfoCardBuilder;
+        return generalInfoCardBuilder.build();
     }
 
     @NonNull
-    private MaterialAboutCard.Builder buildSupportCard(final AboutConfig config) {
+    private MaterialAboutCard buildSupportCard(final AboutConfig config) {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
 
         if (!TextUtils.isEmpty(config.guideHtmlPath)) {
@@ -90,11 +83,11 @@ public class AboutActivity extends MaterialAboutActivity {
                 }
             }));
 
-        return card;
+        return card.build();
     }
 
     @NonNull
-    private MaterialAboutCard.Builder buildShareCard(final AboutConfig config) {
+    private MaterialAboutCard buildShareCard(final AboutConfig config) {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
 
         card.addItem(itemHelper(R.string.egab_leave_review, R.drawable.ic_review,
@@ -115,11 +108,11 @@ public class AboutActivity extends MaterialAboutActivity {
                 }
             }));
 
-        return card;
+        return card.build();
     }
 
     @NonNull
-    private MaterialAboutCard.Builder buildAboutCard(final AboutConfig config) {
+    private MaterialAboutCard buildAboutCard(final AboutConfig config) {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
 
         card.addItem(itemHelper(R.string.egab_try_other_apps, R.drawable.ic_try_other_apps,
@@ -146,11 +139,11 @@ public class AboutActivity extends MaterialAboutActivity {
             })
             .build());
 
-        return card;
+        return card.build();
     }
 
     @NonNull
-    private MaterialAboutCard.Builder buildSocialNetworksCard(final AboutConfig config) {
+    private MaterialAboutCard buildSocialNetworksCard(final AboutConfig config) {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
 
         card.addItem(new MaterialAboutActionItem.Builder()
@@ -191,11 +184,11 @@ public class AboutActivity extends MaterialAboutActivity {
             })
             .build());
 
-        return card;
+        return card.build();
     }
 
     @NonNull
-    private MaterialAboutCard.Builder buildPrivacyCard(final AboutConfig config) {
+    private MaterialAboutCard buildPrivacyCard(final AboutConfig config) {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
 
         card.addItem(itemHelper(R.string.egab_privacy_policy, R.drawable.ic_privacy,
@@ -225,7 +218,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 }
             })
         );
-        return card;
+        return card.build;
     }
 
     private MaterialAboutActionItem itemHelper(int name, int icon, MaterialAboutItemOnClickListener listener) {
