@@ -218,7 +218,7 @@ public class AboutActivity extends MaterialAboutActivity {
                 }
             })
         );
-        return card.build;
+        return card.build();
     }
 
     private MaterialAboutActionItem itemHelper(int name, int icon, MaterialAboutItemOnClickListener listener) {
