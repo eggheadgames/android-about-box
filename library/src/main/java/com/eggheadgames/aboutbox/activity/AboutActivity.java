@@ -8,10 +8,11 @@ import android.net.Uri;
 import android.widget.Toast;
 
 import com.danielstone.materialaboutlibrary.MaterialAboutActivity;
-import com.danielstone.materialaboutlibrary.model.MaterialAboutActionItem;
+import com.danielstone.materialaboutlibrary.items.MaterialAboutActionItem;
+import com.danielstone.materialaboutlibrary.items.MaterialAboutItemOnClickListener;
+import com.danielstone.materialaboutlibrary.items.MaterialAboutTitleItem;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutCard;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList;
-import com.danielstone.materialaboutlibrary.model.MaterialAboutTitleItem;
 import com.eggheadgames.aboutbox.AboutConfig;
 import com.eggheadgames.aboutbox.R;
 import com.eggheadgames.aboutbox.share.EmailUtil;
@@ -46,25 +47,24 @@ public class AboutActivity extends MaterialAboutActivity {
         supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_contact_support)
                 .icon(R.drawable.ic_email_black)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         EmailUtil.contactUs(AboutActivity.this);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_contact_log_event));
                         }
                     }
-                })
-                .build());
+                }).build());
 
 
         MaterialAboutCard.Builder shareCardBuilder = new MaterialAboutCard.Builder();
         shareCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_leave_review)
                 .icon(R.drawable.ic_review)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         openApp(config.buildType, config.packageName);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_review_log_event));
@@ -75,9 +75,9 @@ public class AboutActivity extends MaterialAboutActivity {
         shareCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_share)
                 .icon(R.drawable.ic_share_black)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         ShareUtil.share(AboutActivity.this);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_share_log_event));
@@ -91,9 +91,9 @@ public class AboutActivity extends MaterialAboutActivity {
         aboutCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_try_other_apps)
                 .icon(R.drawable.ic_try_other_apps)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         openPublisher(config.buildType, config.appPublisher, config.packageName);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_try_other_app_log_event));
@@ -104,9 +104,9 @@ public class AboutActivity extends MaterialAboutActivity {
         aboutCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(config.aboutLabelTitle)
                 .icon(R.drawable.ic_about_black)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         if (config.dialog == null) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.companyHtmlPath)));
                         } else {
@@ -126,9 +126,9 @@ public class AboutActivity extends MaterialAboutActivity {
                 .text(R.string.egab_facebook_label)
                 .subText(config.facebookUserName)
                 .icon(R.drawable.ic_facebook_24)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         getOpenFacebookIntent(AboutActivity.this, config.facebookUserName);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_facebook_log_event));
@@ -140,9 +140,9 @@ public class AboutActivity extends MaterialAboutActivity {
                 .text(R.string.egab_twitter_label)
                 .subText(config.twitterUserName)
                 .icon(R.drawable.ic_twitter_24dp)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         startTwitter(AboutActivity.this, config.twitterUserName);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_twitter_log_event));
@@ -155,9 +155,9 @@ public class AboutActivity extends MaterialAboutActivity {
                 .text(R.string.egab_web_label)
                 .subText(config.webHomePage.replace("https://", "").replace("http://", "").replace("/", ""))
                 .icon(R.drawable.ic_web_black_24dp)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.webHomePage)));
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_website_log_event));
@@ -170,9 +170,9 @@ public class AboutActivity extends MaterialAboutActivity {
         privacyCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_privacy_policy)
                 .icon(R.drawable.ic_privacy)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         if (config.dialog == null) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.privacyHtmlPath)));
                         } else {
@@ -188,9 +188,9 @@ public class AboutActivity extends MaterialAboutActivity {
         privacyCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_acknowledgements)
                 .icon(R.drawable.ic_acknowledgements)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                .setOnClickListener(new MaterialAboutItemOnClickListener() {
                     @Override
-                    public void onClick() {
+                    public void onClick(boolean b) {
                         if (config.dialog == null) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(config.acknowledgmentHtmlPath)));
                         } else {
