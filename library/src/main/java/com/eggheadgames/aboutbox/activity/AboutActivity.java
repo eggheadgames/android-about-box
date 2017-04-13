@@ -58,11 +58,11 @@ public class AboutActivity extends MaterialAboutActivity {
                 .build());
         supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_guide)
-                .icon(R.drawable.ic_about_black)
+                .icon(R.drawable.ic_guide)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
                     @Override
                     public void onClick() {
-                        openHTMLPage(config.webHomePage);
+                        openHTMLPage(config.guideHtmlPath);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
                         }
