@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.danielstone.materialaboutlibrary.MaterialAboutActivity;
@@ -43,19 +44,21 @@ public class AboutActivity extends MaterialAboutActivity {
 
 
         MaterialAboutCard.Builder supportCardBuilder = new MaterialAboutCard.Builder();
-        supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.egab_guide)
-                .icon(R.drawable.ic_help_green)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
-                    @Override
-                    public void onClick() {
-                        openHTMLPage(config.guideHtmlPath);
-                        if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
+        if (!TextUtils.isEmpty(config.guideHtmlPath)) {
+            supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+                    .text(R.string.egab_guide)
+                    .icon(R.drawable.ic_help_green)
+                    .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                        @Override
+                        public void onClick() {
+                            openHTMLPage(config.guideHtmlPath);
+                            if (config.analytics != null) {
+                                config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
+                            }
                         }
-                    }
-                })
-                .build());
+                    })
+                    .build());
+        }
         supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_contact_support)
                 .icon(R.drawable.ic_email_black)
