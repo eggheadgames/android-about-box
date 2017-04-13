@@ -44,6 +44,19 @@ public class AboutActivity extends MaterialAboutActivity {
 
         MaterialAboutCard.Builder supportCardBuilder = new MaterialAboutCard.Builder();
         supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+                .text(R.string.egab_guide)
+                .icon(R.drawable.ic_help_green)
+                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
+                    @Override
+                    public void onClick() {
+                        openHTMLPage(config.guideHtmlPath);
+                        if (config.analytics != null) {
+                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
+                        }
+                    }
+                })
+                .build());
+        supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.egab_contact_support)
                 .icon(R.drawable.ic_email_black)
                 .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
@@ -52,19 +65,6 @@ public class AboutActivity extends MaterialAboutActivity {
                         EmailUtil.contactUs(AboutActivity.this);
                         if (config.analytics != null) {
                             config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_contact_log_event));
-                        }
-                    }
-                })
-                .build());
-        supportCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.egab_guide)
-                .icon(R.drawable.ic_help_black_24dp)
-                .setOnClickListener(new MaterialAboutActionItem.OnClickListener() {
-                    @Override
-                    public void onClick() {
-                        openHTMLPage(config.guideHtmlPath);
-                        if (config.analytics != null) {
-                            config.analytics.logUiEvent(config.logUiEventName, getString(R.string.egab_guide));
                         }
                     }
                 })
