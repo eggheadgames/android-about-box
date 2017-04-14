@@ -13,6 +13,7 @@ public class AboutConfig {
     public String facebookUserName;
     public String twitterUserName;
     public String webHomePage;
+    public String guideHtmlPath;
     public String appPublisher;
     public String companyHtmlPath;
     public String privacyHtmlPath;

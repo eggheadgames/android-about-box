@@ -1,7 +1,7 @@
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-24
-    - echo y | android update sdk --no-ui --all --filter build-tools-24.0.2
+    - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-25
+    - echo y | android update sdk --no-ui --all --filter build-tools-25.0.2
 
 test:
   override:

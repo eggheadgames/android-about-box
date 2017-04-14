@@ -8,9 +8,11 @@ A modern About Box for an Android App built on the [daniel-stoneuk/material-abou
 
 ## About
 
-Android About Box is configured with a set of (mostly) strings for the company name, twitter and Facebook accounts, website, and filenames to html files for help files, privacy policy etc.  
+Android About Box is configured with a set of (mostly) strings for the company name, twitter and Facebook accounts, website, and filenames to html files for help files, privacy policy etc.
 
 When triggered from a menu item, it will display the app name, icon and version, provide links to contact support, leave a review, share the app, go to other apps by the same company in the app store -- as well as links to Facebook etc.
+
+As of version 1.1.0, you can also optionally provide a help file with the `aboutConfig.guideHtmlPath` setting. Leave it unset (null or empty string) and the behaviour is compatible with version 1.0.x.
 
 ## Installation Instructions
 
@@ -100,6 +102,32 @@ Open AboutBox screen
         AboutActivity.launch(activity);
 ```
 
+## Theme
+
+Add to your AndroidManifest.xml file
+
+```
+        <activity
+            android:name="com.eggheadgames.aboutbox.activity.AboutActivity"
+            android:theme="@style/AppTheme.MaterialAboutActivity"/>
+```
+
+Ensure that `AppTheme.MaterialAboutActivity` theme extends either of these themes, and apply primary & accent colours:
+```
+Theme.Mal.Light.DarkActionBar
+Theme.Mal.Light.LightActionBar
+Theme.Mal.Dark.LightActionBar
+Theme.Mal.Dark.DarkActionBar
+```
+
+```
+  <style name="AppTheme.MaterialAboutActivity" parent="Theme.Mal.Light.DarkActionBar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+```
 ## Screenshot
 
 <img src="extras/example.png?raw=true">
