@@ -6,7 +6,7 @@ group='com.github.eggheadgames'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "25"
+    buildToolsVersion "25.2.0"
 
     defaultConfig {
         minSdkVersion 15
