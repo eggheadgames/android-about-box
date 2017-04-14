@@ -6,7 +6,7 @@ group='com.github.eggheadgames'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "25.2.0"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 15
@@ -29,7 +29,7 @@ android {
 
 dependencies {
     compile 'com.github.daniel-stoneuk:material-about-library:1.8.2'
-    compile('io.branch.sdk.android:library:2.5.7') {
+    compile('io.branch.sdk.android:library:2.6.1') {
         exclude module: 'answers.shim'
     }
 }
