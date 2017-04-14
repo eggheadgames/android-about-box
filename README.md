@@ -8,9 +8,11 @@ A modern About Box for an Android App built on the [daniel-stoneuk/material-abou
 
 ## About
 
-Android About Box is configured with a set of (mostly) strings for the company name, twitter and Facebook accounts, website, and filenames to html files for help files, privacy policy etc.  
+Android About Box is configured with a set of (mostly) strings for the company name, twitter and Facebook accounts, website, and filenames to html files for help files, privacy policy etc.
 
 When triggered from a menu item, it will display the app name, icon and version, provide links to contact support, leave a review, share the app, go to other apps by the same company in the app store -- as well as links to Facebook etc.
+
+As of version 1.1.0, you can also optionally provide a help file with the `aboutConfig.guideHtmlPath` setting. Leave it unset (null or empty string) and the behaviour is compatible with version 1.0.x.
 
 ## Installation Instructions
 
