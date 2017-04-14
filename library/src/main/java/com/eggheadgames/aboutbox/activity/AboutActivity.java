@@ -68,7 +68,11 @@ public class AboutActivity extends MaterialAboutActivity {
                 new MaterialAboutItemOnClickListener() {
                     @Override
                     public void onClick(boolean b) {
-                        openHTMLPage(config.guideHtmlPath);
+                        if (config.dialog == null) {
+                            openHTMLPage(config.guideHtmlPath);
+                        } else {
+                            config.dialog.open(AboutActivity.this, config.guideHtmlPath, getString(R.string.egab_guide));
+                        }
                         logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_guide));
                     }
                 })
