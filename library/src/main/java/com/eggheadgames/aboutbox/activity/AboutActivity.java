@@ -107,10 +107,10 @@ public class AboutActivity extends MaterialAboutActivity {
             new MaterialAboutItemOnClickListener() {
                 @Override
                 public void onClick(boolean b) {
-                    if (config.share != null) {
-                        config.share.share();
-                    } else {
+                    if (config.share == null) {
                         ShareUtil.share(AboutActivity.this);
+                    } else {
+                        config.share.share();
                     }
                     logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_share_log_event));
                 }
