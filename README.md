@@ -34,12 +34,7 @@ dependencies {
 }
 ```
 
-## Example
-### Setup Branch.io
-
-Branch.io integration can be found [here](https://github.com/BranchMetrics/android-branch-deep-linking)
-
-### Setup AboutBox
+## Setup AboutBox
 
 Add AboutBox configuration to your Application class
 
@@ -90,10 +85,27 @@ Add AboutBox configuration to your Application class
         aboutConfig.emailSubject = EMAIL_SUBJECT;
         aboutConfig.emailBody = EMAIL_BODY;
 
-        // Branch.io labels.
-        aboutConfig.shareMessageTitle = getString(R.string.share_message_title);
+      
+```
+
+You need to provide only one sharing solution. 
+
+Android Native share. 
+Android share intent will be called when you specify only `shareMessage` and `sharingTitle`.
+```
         aboutConfig.shareMessage = getString(R.string.share_message);
         aboutConfig.sharingTitle = getString(R.string.sharing_title);
+```
+
+Custom share.
+Override this callback if you want to call your own share implementation. In this case no need to specify `shareMessage` and `sharingTitle`.
+ ```
+        aboutConfig.share = new IShare() {
+            @Override
+            public void share(Activity activity) {
+                // do custom sharing
+            }
+        };
 ```
 
 Open AboutBox screen
