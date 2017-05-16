@@ -110,7 +110,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     if (config.share == null) {
                         ShareUtil.share(AboutActivity.this);
                     } else {
-                        config.share.share();
+                        config.share.share(AboutActivity.this);
                     }
                     logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_share_log_event));
                 }

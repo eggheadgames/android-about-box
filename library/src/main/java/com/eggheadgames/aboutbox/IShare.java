@@ -1,7 +1,9 @@
 package com.eggheadgames.aboutbox;
 
 
+import android.app.Activity;
+
 public interface IShare {
 
-    void share();
+    void share(Activity activity);
 }
