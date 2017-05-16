@@ -12,7 +12,7 @@ Android About Box is configured with a set of (mostly) strings for the company n
 
 When triggered from a menu item, it will display the app name, icon and version, provide links to contact support, leave a review, share the app, go to other apps by the same company in the app store -- as well as links to Facebook etc.
 
-As of version 1.1.0, you can also optionally provide a help file with the `aboutConfig.guideHtmlPath` setting. Leave it unset (null or empty string) and the behaviour is compatible with version 1.0.x.
+As of version 1.2.0, you can omit many features that don't apply (e.g. like website), by not setting the values. 
 
 ## Installation Instructions
 
@@ -34,12 +34,7 @@ dependencies {
 }
 ```
 
-## Example
-### Setup Branch.io
-
-Branch.io integration can be found [here](https://github.com/BranchMetrics/android-branch-deep-linking)
-
-### Setup AboutBox
+## Setup AboutBox
 
 Add AboutBox configuration to your Application class
 
@@ -90,23 +85,40 @@ Add AboutBox configuration to your Application class
         aboutConfig.emailSubject = EMAIL_SUBJECT;
         aboutConfig.emailBody = EMAIL_BODY;
 
-        // Branch.io labels.
-        aboutConfig.shareMessageTitle = getString(R.string.share_message_title);
-        aboutConfig.shareMessage = getString(R.string.share_message);
-        aboutConfig.sharingTitle = getString(R.string.sharing_title);
+      
 ```
 
-Open AboutBox screen
+## Open the About Box from your app
 
 ```java
         AboutActivity.launch(activity);
 ```
 
+
+
+## Sharing
+
+By default, the default Android share intent will be called with the values specified in `shareMessage` and `sharingTitle`. For example:
+```java
+        aboutConfig.shareMessage = getString(R.string.share_message);
+        aboutConfig.sharingTitle = getString(R.string.sharing_title);
+```
+
+Alternatively, you can provide a custom sharing function (and omit `shareMessage` and `sharingTitle`):
+ ```java
+        aboutConfig.share = new IShare() {
+            @Override
+            public void share(Activity activity) {
+                // do custom sharing
+            }
+        };
+```
+
 ## Theme
 
-Add to your AndroidManifest.xml file
+If you add the following to your AndroidManifest.xml file, the About Box will use these colours. This allows you to match your app colours:
 
-```
+```xml
         <activity
             android:name="com.eggheadgames.aboutbox.activity.AboutActivity"
             android:theme="@style/AppTheme.MaterialAboutActivity"/>
@@ -120,7 +132,7 @@ Theme.Mal.Dark.LightActionBar
 Theme.Mal.Dark.DarkActionBar
 ```
 
-```
+```xml
   <style name="AppTheme.MaterialAboutActivity" parent="Theme.Mal.Light.DarkActionBar" >
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
