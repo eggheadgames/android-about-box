@@ -21,9 +21,10 @@ public class AboutConfig {
     public BuildType buildType;
     public String packageName;
 
-    //    custom analytics and dialog
+    //    custom analytics, dialog and share
     public IAnalytic analytics;
     public IDialog dialog;
+    public IShare share;
 
     //    email
     public String emailAddress;
@@ -31,7 +32,6 @@ public class AboutConfig {
     public String emailBody;
 
     //    share
-    public String shareMessageTitle;
     public String shareMessage;
     public String sharingTitle;
 
