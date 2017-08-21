@@ -184,7 +184,7 @@ public class AboutActivity extends MaterialAboutActivity {
         if (!TextUtils.isEmpty(config.webHomePage)) {
             card.addItem(new MaterialAboutActionItem.Builder()
                     .text(R.string.egab_web_label)
-                    .subText(config.webHomePage.replace("https://", "").replace("http://", "").replace("/", ""))
+                    .subText(config.webHomePage.replaceFirst("^https?://", "").replaceAll("/$", ""))
                     .icon(R.drawable.ic_web_black_24dp)
                     .setOnClickListener(new MaterialAboutItemOnClickListener() {
                         @Override
