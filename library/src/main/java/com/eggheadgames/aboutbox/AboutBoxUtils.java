@@ -66,8 +66,9 @@ public final class AboutBoxUtils {
         String webURI = null;
         switch (buildType) {
             case GOOGLE:
-                appURI = "market://search?q=pub:" + publisher;
-                webURI = "http://play.google.com/store/search?q=pub:" + publisher;
+                // see: https://developer.android.com/distribute/marketing-tools/linking-to-google-play.html#OpeningPublisher
+                appURI = "market://dev?id=" + publisher;
+                webURI = "http://play.google.com/store/dev?id=" + publisher;
                 break;
             case AMAZON:
                 appURI = "amzn://apps/android?showAll=1&p=" + packageName;
