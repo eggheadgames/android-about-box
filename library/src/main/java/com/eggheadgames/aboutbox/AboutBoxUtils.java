@@ -69,7 +69,7 @@ public final class AboutBoxUtils {
         String webURI = null;
         switch (buildType) {
             case GOOGLE:
-                // see: https://developer.android.com/distribute/marketing-tools/linking-to-google-play.html#OpeningPublisher
+                // per: https://developer.android.com/distribute/marketing-tools/linking-to-google-play.html#OpeningPublisher
                 appURI = "market://dev?id=" + publisher;
                 webURI = "http://play.google.com/store/dev?id=" + publisher;
                 break;
