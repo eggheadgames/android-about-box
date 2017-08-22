@@ -8,8 +8,8 @@ import android.widget.Toast;
 
 public final class AboutBoxUtils {
 
-    public static String playStoreAppURI = "https://play.google.com/store/apps/details?id=";
-    public static String amznStoreAppURI = "https://www.amazon.com/gp/mas/dl/android?p=";
+    public final static String playStoreAppURI = "https://play.google.com/store/apps/details?id=";
+    public final static String amznStoreAppURI = "https://www.amazon.com/gp/mas/dl/android?p=";
 
     private AboutBoxUtils() {
         //nothing
