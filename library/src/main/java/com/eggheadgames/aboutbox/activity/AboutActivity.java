@@ -54,6 +54,21 @@ public class AboutActivity extends MaterialAboutActivity {
                 .text(R.string.egab_version)
                 .subText(config.version)
                 .build());
+
+        if (!TextUtils.isEmpty(config.author)) {
+            generalInfoCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+                    .text(R.string.egab_author)
+                    .subText(config.author)
+                    .build());
+        }
+
+        if (!TextUtils.isEmpty(config.extra) && !TextUtils.isEmpty(config.extraTitle)) {
+            generalInfoCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+                    .text(config.extraTitle)
+                    .subText(config.extra)
+                    .build());
+        }
+
         return generalInfoCardBuilder.build();
     }
 
