@@ -130,7 +130,7 @@ public class AboutActivity extends MaterialAboutActivity {
                         }
                     }));
         }
-        if (!TextUtils.isEmpty(config.companyHtmlPath)) {
+        if (!TextUtils.isEmpty(config.companyHtmlPath) && !TextUtils.isEmpty(config.aboutLabelTitle)) {
             card.addItem(new MaterialAboutActionItem.Builder()
                     .text(config.aboutLabelTitle)
                     .icon(R.drawable.ic_about_black)
