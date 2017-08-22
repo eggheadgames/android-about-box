@@ -65,7 +65,7 @@ public class AboutActivity extends MaterialAboutActivity {
         if (!TextUtils.isEmpty(config.extra) && !TextUtils.isEmpty(config.extraTitle)) {
             generalInfoCardBuilder.addItem(new MaterialAboutActionItem.Builder()
                     .text(config.extraTitle)
-                    .subText(config.extra)
+                    .subTextHtml(config.extra)
                     .build());
         }
 
