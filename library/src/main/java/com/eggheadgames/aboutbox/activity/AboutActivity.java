@@ -23,6 +23,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, AboutActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         activity.startActivity(intent);
     }
 
