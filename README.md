@@ -1,5 +1,7 @@
 [![Circle CI](https://circleci.com/gh/eggheadgames/android-about-box.svg?style=svg)](https://circleci.com/gh/eggheadgames/android-about-box)
 [![Release](https://jitpack.io/v/eggheadgames/android-about-box.svg)](https://jitpack.io/#eggheadgames/android-about-box)
+![Downloads](https://jitpack.io/v/eggheadgames/android-about-box/month.svg)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/eggheadgames/android-about-box/blob/develop/LICENSE)
 
 # About Box
 A modern About Box for an Android App built on the [daniel-stoneuk/material-about-library](https://github.com/daniel-stoneuk/material-about-library).
@@ -12,7 +14,7 @@ Android About Box is configured with a set of (mostly) strings for the company n
 
 When triggered from a menu item, it will display the app name, icon and version, provide links to contact support, leave a review, share the app, go to other apps by the same company in the app store -- as well as links to Facebook etc.
 
-As of version 1.2.0, you can omit many features that don't apply (e.g. like website), by not setting the values. 
+You can omit most features if they don't apply (e.g. like website), by not setting the values. 
 
 ## Installation Instructions
 
@@ -43,6 +45,7 @@ Add AboutBox configuration to your Application class
         aboutConfig.appName = getString(R.string.app_name);
         aboutConfig.appIcon = R.mipmap.ic_launcher;
         aboutConfig.version = "1.0.0";
+        aboutConfig.author = "Tolstoy";
         aboutConfig.aboutLabelTitle = "About App";
         aboutConfig.packageName = getApplicationContext().getPackageName();
         aboutConfig.buildType = google ? AboutConfig.BuildType.GOOGLE : AboutConfig.BuildType.AMAZON;

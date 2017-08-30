@@ -8,6 +8,9 @@ public class AboutConfig {
     public String appName;
     public int appIcon;
     public String version;
+    public String author;
+    public String extra;
+    public String extraTitle;
     public String aboutLabelTitle;
     public String logUiEventName;
     public String facebookUserName;

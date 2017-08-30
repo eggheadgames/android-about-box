@@ -8,6 +8,9 @@ import android.widget.Toast;
 
 public final class AboutBoxUtils {
 
+    public final static String playStoreAppURI = "https://play.google.com/store/apps/details?id=";
+    public final static String amznStoreAppURI = "https://www.amazon.com/gp/mas/dl/android?p=";
+
     private AboutBoxUtils() {
         //nothing
     }
@@ -49,11 +52,11 @@ public final class AboutBoxUtils {
         switch (buildType) {
             case GOOGLE:
                 appURI = "market://details?id=" + packageName;
-                webURI = "http://play.google.com/store/apps/details?id=" + packageName;
+                webURI = playStoreAppURI + packageName;
                 break;
             case AMAZON:
                 appURI = "amzn://apps/android?p=" + packageName;
-                webURI = "http://www.amazon.com/gp/mas/dl/android?p=" + packageName;
+                webURI = amznStoreAppURI + packageName;
                 break;
             default:
                 //nothing
@@ -66,8 +69,9 @@ public final class AboutBoxUtils {
         String webURI = null;
         switch (buildType) {
             case GOOGLE:
-                appURI = "market://search?q=pub:" + publisher;
-                webURI = "http://play.google.com/store/search?q=pub:" + publisher;
+                // per: https://developer.android.com/distribute/marketing-tools/linking-to-google-play.html#OpeningPublisher
+                appURI = "market://dev?id=" + publisher;
+                webURI = "http://play.google.com/store/dev?id=" + publisher;
                 break;
             case AMAZON:
                 appURI = "amzn://apps/android?showAll=1&p=" + packageName;
