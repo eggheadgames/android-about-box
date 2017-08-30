@@ -23,6 +23,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, AboutActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         activity.startActivity(intent);
     }
 
@@ -54,6 +55,21 @@ public class AboutActivity extends MaterialAboutActivity {
                 .text(R.string.egab_version)
                 .subText(config.version)
                 .build());
+
+        if (!TextUtils.isEmpty(config.author)) {
+            generalInfoCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+                    .text(R.string.egab_author)
+                    .subText(config.author)
+                    .build());
+        }
+
+        if (!TextUtils.isEmpty(config.extra) && !TextUtils.isEmpty(config.extraTitle)) {
+            generalInfoCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+                    .text(config.extraTitle)
+                    .subTextHtml(config.extra)
+                    .build());
+        }
+
         return generalInfoCardBuilder.build();
     }
 
@@ -130,7 +146,7 @@ public class AboutActivity extends MaterialAboutActivity {
                         }
                     }));
         }
-        if (!TextUtils.isEmpty(config.companyHtmlPath)) {
+        if (!TextUtils.isEmpty(config.companyHtmlPath) && !TextUtils.isEmpty(config.aboutLabelTitle)) {
             card.addItem(new MaterialAboutActionItem.Builder()
                     .text(config.aboutLabelTitle)
                     .icon(R.drawable.ic_about_black)
