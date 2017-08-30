@@ -1,6 +1,6 @@
 [![Circle CI](https://circleci.com/gh/eggheadgames/android-about-box.svg?style=svg)](https://circleci.com/gh/eggheadgames/android-about-box)
 [![Release](https://jitpack.io/v/eggheadgames/android-about-box.svg)](https://jitpack.io/#eggheadgames/android-about-box)
-![Downloads](https://jitpack.io/v/daniel-stoneuk/material-about-library/month.svg)
+![Downloads](https://jitpack.io/v/eggheadgames/android-about-box/month.svg)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/eggheadgames/android-about-box/blob/develop/LICENSE)
 
 # About Box
