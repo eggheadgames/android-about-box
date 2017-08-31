@@ -69,9 +69,16 @@ public final class AboutBoxUtils {
         String webURI = null;
         switch (buildType) {
             case GOOGLE:
-                // per: https://developer.android.com/distribute/marketing-tools/linking-to-google-play.html#OpeningPublisher
-                appURI = "market://dev?id=" + publisher;
-                webURI = "http://play.google.com/store/dev?id=" + publisher;
+                // see:
+                // https://developer.android.com/distribute/marketing-tools/linking-to-google-play.html#OpeningPublisher
+                // https://stackoverflow.com/questions/32029408/how-to-open-developer-page-on-google-play-store-market
+                if (publisher.matches("\\d+")) {
+                    webURI = "http://play.google.com/store/dev?id=" + publisher;
+                    appURI = webURI;
+                } else {
+                    appURI = "market://search?q=pub:" + publisher;
+                    webURI = "http://play.google.com/store/search?q=pub:" + publisher;
+                }
                 break;
             case AMAZON:
                 appURI = "amzn://apps/android?showAll=1&p=" + packageName;
