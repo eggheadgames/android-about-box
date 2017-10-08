@@ -14,7 +14,7 @@ Android About Box is configured with a set of (mostly) strings for the company n
 
 When triggered from a menu item, it will display the app name, icon and version, provide links to contact support, leave a review, share the app, go to other apps by the same company in the app store -- as well as links to Facebook etc.
 
-You can omit most features if they don't apply (e.g. like website), by not setting the values. 
+You can omit most features if they don't apply (e.g. like website), by not setting the values.
 
 ## Installation Instructions
 
@@ -88,7 +88,7 @@ Add AboutBox configuration to your Application class
         aboutConfig.emailSubject = EMAIL_SUBJECT;
         aboutConfig.emailBody = EMAIL_BODY;
 
-      
+
 ```
 
 ## Open the About Box from your app
@@ -106,6 +106,7 @@ By default, the default Android share intent will be called with the values spec
         aboutConfig.shareMessage = getString(R.string.share_message);
         aboutConfig.sharingTitle = getString(R.string.sharing_title);
 ```
+The `share_message` string will have an app store URL appended to it (appropriately constructed for Google Play or Amazon).
 
 Alternatively, you can provide a custom sharing function (and omit `shareMessage` and `sharingTitle`):
  ```java
