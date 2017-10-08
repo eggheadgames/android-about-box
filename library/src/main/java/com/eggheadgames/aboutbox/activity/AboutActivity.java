@@ -8,7 +8,7 @@ import android.text.TextUtils;
 
 import com.danielstone.materialaboutlibrary.MaterialAboutActivity;
 import com.danielstone.materialaboutlibrary.items.MaterialAboutActionItem;
-import com.danielstone.materialaboutlibrary.items.MaterialAboutItemOnClickListener;
+import com.danielstone.materialaboutlibrary.items.MaterialAboutItemOnClickAction;
 import com.danielstone.materialaboutlibrary.items.MaterialAboutTitleItem;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutCard;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList;
@@ -79,9 +79,9 @@ public class AboutActivity extends MaterialAboutActivity {
 
         if (!TextUtils.isEmpty(config.guideHtmlPath)) {
             card.addItem(itemHelper(R.string.egab_guide, R.drawable.ic_help_green,
-                    new MaterialAboutItemOnClickListener() {
+                    new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             if (config.dialog == null) {
                                 AboutBoxUtils.openHTMLPage(AboutActivity.this, config.guideHtmlPath);
                             } else {
@@ -93,9 +93,9 @@ public class AboutActivity extends MaterialAboutActivity {
             );
         }
         card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
-                new MaterialAboutItemOnClickListener() {
+                new MaterialAboutItemOnClickAction() {
                     @Override
-                    public void onClick(boolean b) {
+                    public void onClick() {
                         EmailUtil.contactUs(AboutActivity.this);
                         logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_contact_log_event));
                     }
@@ -109,18 +109,18 @@ public class AboutActivity extends MaterialAboutActivity {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
         if (config.buildType != null && !TextUtils.isEmpty(config.packageName)) {
             card.addItem(itemHelper(R.string.egab_leave_review, R.drawable.ic_review,
-                    new MaterialAboutItemOnClickListener() {
+                    new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             AboutBoxUtils.openApp(AboutActivity.this, config.buildType, config.packageName);
                             logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_review_log_event));
                         }
                     }));
         }
         card.addItem(itemHelper(R.string.egab_share, R.drawable.ic_share_black,
-                new MaterialAboutItemOnClickListener() {
+                new MaterialAboutItemOnClickAction() {
                     @Override
-                    public void onClick(boolean b) {
+                    public void onClick() {
                         if (config.share == null) {
                             ShareUtil.share(AboutActivity.this);
                         } else {
@@ -137,9 +137,9 @@ public class AboutActivity extends MaterialAboutActivity {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
         if (config.buildType != null && !TextUtils.isEmpty(config.appPublisher) && !TextUtils.isEmpty(config.packageName)) {
             card.addItem(itemHelper(R.string.egab_try_other_apps, R.drawable.ic_try_other_apps,
-                    new MaterialAboutItemOnClickListener() {
+                    new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             AboutBoxUtils.openPublisher(AboutActivity.this, config.buildType,
                                     config.appPublisher, config.packageName);
                             logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_try_other_app_log_event));
@@ -150,9 +150,9 @@ public class AboutActivity extends MaterialAboutActivity {
             card.addItem(new MaterialAboutActionItem.Builder()
                     .text(config.aboutLabelTitle)
                     .icon(R.drawable.ic_about_black)
-                    .setOnClickListener(new MaterialAboutItemOnClickListener() {
+                    .setOnClickAction(new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             if (config.dialog == null) {
                                 AboutBoxUtils.openHTMLPage(AboutActivity.this, config.companyHtmlPath);
                             } else {
@@ -174,9 +174,9 @@ public class AboutActivity extends MaterialAboutActivity {
                     .text(R.string.egab_facebook_label)
                     .subText(config.facebookUserName)
                     .icon(R.drawable.ic_facebook_24)
-                    .setOnClickListener(new MaterialAboutItemOnClickListener() {
+                    .setOnClickAction(new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             AboutBoxUtils.getOpenFacebookIntent(AboutActivity.this, config.facebookUserName);
                             logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_facebook_log_event));
                         }
@@ -188,9 +188,9 @@ public class AboutActivity extends MaterialAboutActivity {
                     .text(R.string.egab_twitter_label)
                     .subText(config.twitterUserName)
                     .icon(R.drawable.ic_twitter_24dp)
-                    .setOnClickListener(new MaterialAboutItemOnClickListener() {
+                    .setOnClickAction(new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             AboutBoxUtils.startTwitter(AboutActivity.this, config.twitterUserName);
                             logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_twitter_log_event));
                         }
@@ -202,9 +202,9 @@ public class AboutActivity extends MaterialAboutActivity {
                     .text(R.string.egab_web_label)
                     .subText(config.webHomePage.replaceFirst("^https?://", "").replaceAll("/$", ""))
                     .icon(R.drawable.ic_web_black_24dp)
-                    .setOnClickListener(new MaterialAboutItemOnClickListener() {
+                    .setOnClickAction(new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             AboutBoxUtils.openHTMLPage(AboutActivity.this, config.webHomePage);
                             logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_website_log_event));
                         }
@@ -219,9 +219,9 @@ public class AboutActivity extends MaterialAboutActivity {
         MaterialAboutCard.Builder card = new MaterialAboutCard.Builder();
         if (!TextUtils.isEmpty(config.privacyHtmlPath)) {
             card.addItem(itemHelper(R.string.egab_privacy_policy, R.drawable.ic_privacy,
-                    new MaterialAboutItemOnClickListener() {
+                    new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             if (config.dialog == null) {
                                 AboutBoxUtils.openHTMLPage(AboutActivity.this, config.privacyHtmlPath);
                             } else {
@@ -235,9 +235,9 @@ public class AboutActivity extends MaterialAboutActivity {
         }
         if (!TextUtils.isEmpty(config.acknowledgmentHtmlPath)) {
             card.addItem(itemHelper(R.string.egab_acknowledgements, R.drawable.ic_acknowledgements,
-                    new MaterialAboutItemOnClickListener() {
+                    new MaterialAboutItemOnClickAction() {
                         @Override
-                        public void onClick(boolean b) {
+                        public void onClick() {
                             if (config.dialog == null) {
                                 AboutBoxUtils.openHTMLPage(AboutActivity.this, config.acknowledgmentHtmlPath);
                             } else {
@@ -251,11 +251,11 @@ public class AboutActivity extends MaterialAboutActivity {
         return card.build();
     }
 
-    private MaterialAboutActionItem itemHelper(int name, int icon, MaterialAboutItemOnClickListener listener) {
+    private MaterialAboutActionItem itemHelper(int name, int icon, MaterialAboutItemOnClickAction clickAction) {
         return new MaterialAboutActionItem.Builder()
                 .text(name)
                 .icon(icon)
-                .setOnClickListener(listener)
+                .setOnClickAction(clickAction)
                 .build();
     }
 

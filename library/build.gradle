@@ -28,5 +28,5 @@ android {
 }
 
 dependencies {
-    compile 'com.github.daniel-stoneuk:material-about-library:1.8.2'
+    compile 'com.github.daniel-stoneuk:material-about-library:2.2.1'
 }

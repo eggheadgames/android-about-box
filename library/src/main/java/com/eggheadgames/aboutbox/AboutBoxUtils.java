@@ -72,12 +72,13 @@ public final class AboutBoxUtils {
                 // see:
                 // https://developer.android.com/distribute/marketing-tools/linking-to-google-play.html#OpeningPublisher
                 // https://stackoverflow.com/questions/32029408/how-to-open-developer-page-on-google-play-store-market
+                // https://issuetracker.google.com/65244694
                 if (publisher.matches("\\d+")) {
-                    webURI = "http://play.google.com/store/dev?id=" + publisher;
+                    webURI = "https://play.google.com/store/apps/dev?id=" + publisher;
                     appURI = webURI;
                 } else {
                     appURI = "market://search?q=pub:" + publisher;
-                    webURI = "http://play.google.com/store/search?q=pub:" + publisher;
+                    webURI = "https://play.google.com/store/search?q=pub:" + publisher;
                 }
                 break;
             case AMAZON:
