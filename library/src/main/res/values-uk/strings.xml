@@ -1,27 +1,17 @@
 <resources>
     <string name="egab_leave_review">Залишити відгук</string>
     <string name="egab_contact_support">З\'єднатися з підтримкою</string>
-    <string name="egab_try_other_apps">Спробувати інші застосунки</string>
+    <string name="egab_try_other_apps">Спробувати інші додатки</string>
     <string name="egab_version">Версія</string>
     <string name="egab_author">Автор</string>
-    <string name="egab_facebook_label">Facebook</string>
-    <string name="egab_twitter_label">Twitter</string>
+    
     <string name="egab_web_label">Веб</string>
-    <string name="egab_acknowledgements">Підтвердження</string>
+    <string name="egab_acknowledgements">Подяка</string>
     <string name="egab_privacy_policy">Політика приватності</string>
-    <string name="egab_about_screen_title">Про застосунок</string>
-    <string name="egab_share">Поширити</string>
-    <string name="egab_contact_log_event">Contact</string>
-    <string name="egab_review_log_event">Review</string>
-    <string name="egab_share_log_event">Share</string>
-    <string name="egab_try_other_app_log_event">Try Other Apps</string>
-    <string name="egab_facebook_log_event">Facebook</string>
-    <string name="egab_twitter_log_event">Twitter</string>
-    <string name="egab_website_log_event">Website</string>
-    <string name="egab_privacy_log_event">Privacy</string>
-    <string name="egab_acknowledgements_log_event">Acknowledgements</string>
-    <string name="egab_can_not_open">Ви не маєте застосунок, який міг би відкрити це посилання</string>
+    <string name="egab_about_screen_title">Про додаток</string>
+    <string name="egab_share">Поділитися</string>
+	
+    <string name="egab_can_not_open">У Вас немає додатка, який може відкрити це посилання</string>
     <string name="egab_email_body_prompt">Будь ласка, напишіть Ваше запитання тут: </string>
-    <string name="egab_guide">Керівництво</string>
-
+    <string name="egab_guide">Правила гри</string>
 </resources>
