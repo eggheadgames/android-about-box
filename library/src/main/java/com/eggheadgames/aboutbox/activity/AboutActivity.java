@@ -3,7 +3,9 @@ package com.eggheadgames.aboutbox.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.danielstone.materialaboutlibrary.MaterialAboutActivity;
@@ -22,9 +24,23 @@ import com.eggheadgames.aboutbox.share.ShareUtil;
 public class AboutActivity extends MaterialAboutActivity {
 
     public static void launch(Activity activity) {
+        launch(activity, 0);
+    }
+
+    public static void launch(Activity activity, int style) {
         Intent intent = new Intent(activity, AboutActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.putExtra("style", style);
         activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        int style = getIntent().getIntExtra("style", 0);
+        if (style != 0) {
+            setTheme(style);
+        }
+        super.onCreate(savedInstanceState);
     }
 
     @Override
