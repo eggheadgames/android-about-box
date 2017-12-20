@@ -95,9 +95,9 @@ Add AboutBox configuration to your Application class
 
 ```java
         AboutActivity.launch(activity);
+or
+        AboutActivity.launch(activity, style);
 ```
-
-
 
 ## Sharing
 
@@ -120,13 +120,17 @@ Alternatively, you can provide a custom sharing function (and omit `shareMessage
 
 ## Theme
 
-If you add the following to your AndroidManifest.xml file, the About Box will use these colours. This allows you to match your app colours:
+Adding a custom theme is very simple, you can do it in 2 ways.
+
+First way is to add the following lines to your AndroidManifest.xml file:
 
 ```xml
         <activity
             android:name="com.eggheadgames.aboutbox.activity.AboutActivity"
             android:theme="@style/AppTheme.MaterialAboutActivity"/>
 ```
+
+or second way, just put style id directly to AboutActivity.launch(activity, style).
 
 Ensure that `AppTheme.MaterialAboutActivity` theme extends either of these themes, and apply primary & accent colours:
 ```
