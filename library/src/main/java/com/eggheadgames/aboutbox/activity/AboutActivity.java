@@ -32,14 +32,23 @@ public class AboutActivity extends MaterialAboutActivity {
 
         final AboutConfig config = AboutConfig.getInstance();
 
-        return new MaterialAboutList.Builder()
-                .addCard(buildGeneralInfoCard(config))
+        MaterialAboutList.Builder builder = new MaterialAboutList.Builder();
+        builder.addCard(buildGeneralInfoCard(config))
                 .addCard(buildSupportCard(config))
-                .addCard(buildShareCard(config))
-                .addCard(buildAboutCard(config))
-                .addCard(buildSocialNetworksCard(config))
-                .addCard(buildPrivacyCard(config))
-                .build();
+                .addCard(buildShareCard(config));
+
+        if((config.buildType != null && !TextUtils.isEmpty(config.appPublisher) && !TextUtils.isEmpty(config.packageName))
+                || (!TextUtils.isEmpty(config.companyHtmlPath) && !TextUtils.isEmpty(config.aboutLabelTitle))){
+            builder.addCard(buildAboutCard(config));
+        }
+        if(!TextUtils.isEmpty(config.twitterUserName) || !TextUtils.isEmpty(config.facebookUserName)
+                || !TextUtils.isEmpty(config.webHomePage)){
+            builder.addCard(buildSocialNetworksCard(config));
+        }
+        if(!TextUtils.isEmpty(config.privacyHtmlPath) || !TextUtils.isEmpty(config.acknowledgmentHtmlPath)){
+            builder.addCard(buildPrivacyCard(config));
+        }
+        return builder.build();
     }
 
     @NonNull
