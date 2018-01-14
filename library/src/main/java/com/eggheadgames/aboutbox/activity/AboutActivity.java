@@ -37,8 +37,9 @@ public class AboutActivity extends MaterialAboutActivity {
                 .addCard(buildSupportCard(config))
                 .addCard(buildShareCard(config));
 
-        if((config.buildType != null && !TextUtils.isEmpty(config.appPublisher) && !TextUtils.isEmpty(config.packageName))
-                || (!TextUtils.isEmpty(config.companyHtmlPath) && !TextUtils.isEmpty(config.aboutLabelTitle))){
+        boolean showTryOtherApps = config.buildType != null && !TextUtils.isEmpty(config.appPublisher) && !TextUtils.isEmpty(config.packageName);
+        boolean showAboutCompany = !TextUtils.isEmpty(config.companyHtmlPath) && !TextUtils.isEmpty(config.aboutLabelTitle);
+        if( showTryOtherApps || showAboutCompany){
             builder.addCard(buildAboutCard(config));
         }
         if(!TextUtils.isEmpty(config.twitterUserName) || !TextUtils.isEmpty(config.facebookUserName)
