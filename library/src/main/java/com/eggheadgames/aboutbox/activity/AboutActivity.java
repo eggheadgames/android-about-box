@@ -31,24 +31,33 @@ public class AboutActivity extends MaterialAboutActivity {
     protected MaterialAboutList getMaterialAboutList(Context context) {
 
         final AboutConfig config = AboutConfig.getInstance();
-
         MaterialAboutList.Builder builder = new MaterialAboutList.Builder();
-        builder.addCard(buildGeneralInfoCard(config))
-                .addCard(buildSupportCard(config))
-                .addCard(buildShareCard(config));
 
-        boolean showTryOtherApps = config.buildType != null && !TextUtils.isEmpty(config.appPublisher) && !TextUtils.isEmpty(config.packageName);
-        boolean showAboutCompany = !TextUtils.isEmpty(config.companyHtmlPath) && !TextUtils.isEmpty(config.aboutLabelTitle);
-        if( showTryOtherApps || showAboutCompany){
-            builder.addCard(buildAboutCard(config));
+        MaterialAboutCard generalInfo = buildGeneralInfoCard(config);
+        if(!generalInfo.getItems().isEmpty()){
+            builder.addCard(generalInfo);
         }
-        if(!TextUtils.isEmpty(config.twitterUserName) || !TextUtils.isEmpty(config.facebookUserName)
-                || !TextUtils.isEmpty(config.webHomePage)){
-            builder.addCard(buildSocialNetworksCard(config));
+        MaterialAboutCard share = buildShareCard(config);
+        if(!share.getItems().isEmpty()){
+            builder.addCard(share);
         }
-        if(!TextUtils.isEmpty(config.privacyHtmlPath) || !TextUtils.isEmpty(config.acknowledgmentHtmlPath)){
-            builder.addCard(buildPrivacyCard(config));
+        MaterialAboutCard support = buildSupportCard(config);
+        if(!support.getItems().isEmpty()){
+            builder.addCard(support);
         }
+        MaterialAboutCard about = buildAboutCard(config);
+        if(!about.getItems().isEmpty()){
+            builder.addCard(about);
+        }
+        MaterialAboutCard socialNetworks = buildSocialNetworksCard(config);
+        if(!socialNetworks.getItems().isEmpty()){
+            builder.addCard(socialNetworks);
+        }
+        MaterialAboutCard privacy = buildPrivacyCard(config);
+        if(!privacy.getItems().isEmpty()){
+            builder.addCard(privacy);
+        }
+
         return builder.build();
     }
 
@@ -102,14 +111,16 @@ public class AboutActivity extends MaterialAboutActivity {
                     })
             );
         }
-        card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
-                new MaterialAboutItemOnClickAction() {
-                    @Override
-                    public void onClick() {
-                        EmailUtil.contactUs(AboutActivity.this);
-                        logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_contact_log_event));
-                    }
-                }));
+        if(!TextUtils.isEmpty(config.emailAddress)) {
+            card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
+                    new MaterialAboutItemOnClickAction() {
+                        @Override
+                        public void onClick() {
+                            EmailUtil.contactUs(AboutActivity.this);
+                            logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_contact_log_event));
+                        }
+                    }));
+        }
 
         return card.build();
     }
