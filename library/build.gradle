@@ -1,6 +1,8 @@
-apply plugin: 'com.android.library'
-apply from: "quality.gradle"
-apply plugin: 'com.github.dcendents.android-maven'
+plugins {
+    id 'com.android.library'
+    id 'com.novoda.static-analysis' version '1.2'
+    id "com.github.spotbugs" version '3.0.0'
+}
 
 group = 'com.github.eggheadgames'
 
@@ -31,4 +33,23 @@ dependencies {
     implementation 'com.github.daniel-stoneuk:material-about-library:3.1.2'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
+}
+
+staticAnalysis {
+    penalty {
+        maxErrors = 0
+        maxWarnings = 0
+    }
+    pmd {
+        ignoreFailures = false
+        reportsDir = file("$project.buildDir/outputs/")
+    }
+    spotbugs {
+        ignoreFailures = false
+        reportsDir = file("$project.buildDir/outputs/")
+        reportLevel = "medium"
+        effort = "max"
+
+        excludeFilter rootProject.file('library/findbugs_excludes.xml')
+    }
 }
