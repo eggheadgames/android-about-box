@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply from: "quality.gradle"
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.eggheadgames'
+group = 'com.github.eggheadgames'
 
 android {
     compileSdkVersion 25
@@ -28,5 +28,5 @@ android {
 }
 
 dependencies {
-    compile 'com.github.daniel-stoneuk:material-about-library:2.2.1'
+    implementation 'com.github.daniel-stoneuk:material-about-library:3.1.2'
 }
