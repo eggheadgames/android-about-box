@@ -130,14 +130,14 @@ If you add the following to your AndroidManifest.xml file, the About Box will us
 
 Ensure that `AppTheme.MaterialAboutActivity` theme extends either of these themes, and apply primary & accent colours:
 ```
-Theme.Mal.Light.DarkActionBar
-Theme.Mal.Light.LightActionBar
-Theme.Mal.Dark.LightActionBar
-Theme.Mal.Dark.DarkActionBar
+Theme.MaterialComponents.DayNight
+Theme.MaterialComponents.DayNight.DarkActionBar
+Theme.MaterialComponents.Light
+Theme.MaterialComponents.Light.DarkActionBar
 ```
 
 ```xml
-  <style name="AppTheme.MaterialAboutActivity" parent="Theme.Mal.Light.DarkActionBar" >
+  <style name="AppTheme.MaterialAboutActivity" parent="Theme.MaterialComponents.DayNight.DarkActionBar" >
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
