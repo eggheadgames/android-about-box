@@ -95,15 +95,16 @@ public class AboutActivity extends MaterialAboutActivity {
                     })
             );
         }
-        card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
-                new MaterialAboutItemOnClickAction() {
-                    @Override
-                    public void onClick() {
-                        EmailUtil.contactUs(AboutActivity.this);
-                        logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_contact_log_event));
-                    }
-                }));
-
+        if(!TextUtils.isEmpty(config.emailAddress)) {
+            card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
+                    new MaterialAboutItemOnClickAction() {
+                        @Override
+                        public void onClick() {
+                            EmailUtil.contactUs(AboutActivity.this);
+                            logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_contact_log_event));
+                        }
+                    }));
+        }
         return card.build();
     }
 
