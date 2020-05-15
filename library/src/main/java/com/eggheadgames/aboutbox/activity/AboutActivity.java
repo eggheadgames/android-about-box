@@ -28,19 +28,21 @@ public class AboutActivity extends MaterialAboutActivity {
         activity.startActivity(intent);
     }
 
+    @NonNull
     @Override
-    protected MaterialAboutList getMaterialAboutList(Context context) {
+    protected MaterialAboutList getMaterialAboutList(@NonNull Context context) {
 
         final AboutConfig config = AboutConfig.getInstance();
 
-        return new MaterialAboutList.Builder()
-                .addCard(buildGeneralInfoCard(config))
-                .addCard(buildSupportCard(config))
-                .addCard(buildShareCard(config))
-                .addCard(buildAboutCard(config))
-                .addCard(buildSocialNetworksCard(config))
-                .addCard(buildPrivacyCard(config))
-                .build();
+        MaterialAboutList.Builder builder = new MaterialAboutList.Builder();
+        addIfNotEmpty(builder, buildGeneralInfoCard(config));
+        addIfNotEmpty(builder, buildSupportCard(config));
+        addIfNotEmpty(builder, buildShareCard(config));
+        addIfNotEmpty(builder, buildAboutCard(config));
+        addIfNotEmpty(builder, buildSocialNetworksCard(config));
+        addIfNotEmpty(builder, buildPrivacyCard(config));
+
+        return builder.build();
     }
 
     @NonNull
@@ -93,15 +95,16 @@ public class AboutActivity extends MaterialAboutActivity {
                     })
             );
         }
-        card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
-                new MaterialAboutItemOnClickAction() {
-                    @Override
-                    public void onClick() {
-                        EmailUtil.contactUs(AboutActivity.this);
-                        logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_contact_log_event));
-                    }
-                }));
-
+        if(!TextUtils.isEmpty(config.emailAddress)) {
+            card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
+                    new MaterialAboutItemOnClickAction() {
+                        @Override
+                        public void onClick() {
+                            EmailUtil.contactUs(AboutActivity.this);
+                            logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_contact_log_event));
+                        }
+                    }));
+        }
         return card.build();
     }
 
@@ -260,6 +263,11 @@ public class AboutActivity extends MaterialAboutActivity {
                 .build();
     }
 
+    private void addIfNotEmpty(MaterialAboutList.Builder builder, MaterialAboutCard card) {
+        if (!card.getItems().isEmpty()) {
+            builder.addCard(card);
+        }
+    }
 
     @Override
     protected CharSequence getActivityTitle() {
