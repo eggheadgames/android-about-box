@@ -13,6 +13,7 @@ public class AboutConfig {
     public String extraTitle;
     public String aboutLabelTitle;
     public String logUiEventName;
+    public String facebookUserPageId;
     public String facebookUserName;
     public String twitterUserName;
     public String webHomePage;
