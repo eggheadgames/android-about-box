@@ -95,7 +95,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     })
             );
         }
-        if(!TextUtils.isEmpty(config.emailAddress)) {
+        if (!TextUtils.isEmpty(config.emailAddress)) {
             card.addItem(itemHelper(R.string.egab_contact_support, R.drawable.ic_email_black,
                     new MaterialAboutItemOnClickAction() {
                         @Override
@@ -181,7 +181,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     .setOnClickAction(new MaterialAboutItemOnClickAction() {
                         @Override
                         public void onClick() {
-                            AboutBoxUtils.getOpenFacebookIntent(AboutActivity.this, config.facebookUserName);
+                            AboutBoxUtils.getOpenFacebookIntent(AboutActivity.this, config.facebookUserName, config.facebookUserPageId);
                             logUIEventName(config.analytics, config.logUiEventName, getString(R.string.egab_facebook_log_event));
                         }
                     })

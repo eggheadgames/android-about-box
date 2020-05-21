@@ -15,10 +15,10 @@ public final class AboutBoxUtils {
         //nothing
     }
 
-    public static void getOpenFacebookIntent(Activity context, String name) {
+    public static void getOpenFacebookIntent(Activity context, String name, String pageId) {
         try {
             context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/" + name));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/" + pageId));
             context.startActivity(intent);
         } catch (Exception e) {
             try {
